@@ -23,13 +23,13 @@ class Step2SelectDevice extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Selecciona tu dispositivo OLEO detectado:',
+          'Selecciona tu dispositivo LAB detectado:',
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 12),
         if (scanResults.isEmpty)
           const Text(
-            'No se encontraron dispositivos OLEO. Inicia una nueva búsqueda desde el paso anterior.',
+            'No se encontraron dispositivos LAB. Inicia una nueva búsqueda desde el paso anterior.',
           )
         else
           ...scanResults.asMap().entries.map((entry) {

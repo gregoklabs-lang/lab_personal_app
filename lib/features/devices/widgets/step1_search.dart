@@ -18,7 +18,7 @@ class Step1Search extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Presiona el botón del OLEO por 5 segundos y luego presiona Buscar.',
+          'Presiona el botón del LAB por 5 segundos y luego presiona Buscar.',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 20),

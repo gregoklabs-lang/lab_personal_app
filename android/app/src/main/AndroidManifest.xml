@@ -12,7 +12,7 @@
     android:usesPermissionFlags="neverForLocation" />
     <application
         android:name="${applicationName}"
-        android:label="flutter_application_1"
+        android:label="Lab Personal"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

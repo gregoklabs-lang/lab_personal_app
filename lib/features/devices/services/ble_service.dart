@@ -36,7 +36,7 @@ class BleService {
     if (message.isEmpty) return;
     _lastStatusMessage = message;
     _statusController.add(message);
-    _log.i('Estado OLEO: $message');
+    _log.i('Estado LAB: $message');
   }
 
   bool _uuidEquals(Guid uuid, String target) =>
@@ -61,7 +61,7 @@ class BleService {
 
     if (targetCharacteristic == null) {
       throw Exception(
-        'El dispositivo OLEO no expone la característica de provisión esperada.',
+        'El dispositivo LAB no expone la característica de provisión esperada.',
       );
     }
 
@@ -253,7 +253,7 @@ class BleService {
             withoutResponse: useWithoutResponse,
           );
           _log.i(
-            'Credenciales Wi-Fi enviadas al OLEO (formato ${payload.label}, intento ${attempt + 1}).',
+            'Credenciales Wi-Fi enviadas al LAB (formato ${payload.label}, intento ${attempt + 1}).',
           );
           return;
         } on FlutterBluePlusException catch (e) {
@@ -264,7 +264,7 @@ class BleService {
               errorText.contains('GATT_ERROR');
 
           if (!isGatt133) {
-            _log.e('Error al enviar credenciales al OLEO', error: e);
+            _log.e('Error al enviar credenciales al LAB', error: e);
             throw Exception(
               'El dispositivo BLE rechazó las credenciales (${e.toString()}).',
             );
@@ -347,7 +347,7 @@ class BleService {
     return state == BluetoothAdapterState.on;
   }
 
-  /// Escanea dispositivos cuyo nombre (o advName) contenga "OLEO".
+  /// Escanea dispositivos cuyo nombre (o advName) contenga "LAB".
   /// Devuelve la lista (únicos por remoteId) ordenada por RSSI desc.
   Future<List<ScanResult>> scanOleo({
     Duration timeout = const Duration(seconds: 6),
@@ -378,7 +378,7 @@ class BleService {
                 .trim();
         final upperName = name.toUpperCase();
 
-        if (upperName.contains('OLEO') || upperName.contains('ESP32')) {
+        if (upperName.contains('LAB') || upperName.contains('ESP32')) {
           if (!byId.containsKey(id) || r.rssi > (byId[id]?.rssi ?? -999)) {
             byId[id] = r;
             changed = true;
@@ -479,7 +479,7 @@ class BleService {
     return (p.isNotEmpty ? p : a).isEmpty
         ? 'Desconocido'
         : (p.isNotEmpty ? p : a);
-    // Ej.: "OLEO Sensor"
+    // Ej.: "LAB Sensor"
   }
 
   /// Resetea estado (por si sales de la pantalla y quieres limpiar)

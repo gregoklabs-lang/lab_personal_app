@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'package:flutter_application_1/features/home/home_screen.dart';
+import 'package:lab_personal/features/home/home_screen.dart';
+
+const _testSupabaseUrl = String.fromEnvironment(
+  'SUPABASE_TEST_URL',
+  defaultValue: 'https://your-lab-project.supabase.co',
+);
+const _testSupabaseAnonKey = String.fromEnvironment(
+  'SUPABASE_TEST_ANON_KEY',
+  defaultValue: 'public-anon-key',
+);
 
 Future<void> _ensureSupabaseInitialized() => Supabase.initialize(
-      url: 'https://example.supabase.co',
-      anonKey: 'public-anon-key',
+      url: _testSupabaseUrl,
+      anonKey: _testSupabaseAnonKey,
       authOptions: FlutterAuthClientOptions(
         autoRefreshToken: false,
         detectSessionInUri: false,

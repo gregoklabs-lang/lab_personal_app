@@ -99,7 +99,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
       if (_scanResults.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('No se detectaron dispositivos OLEO cercanos.'),
+            content: Text('No se detectaron dispositivos LAB cercanos.'),
           ),
         );
       } else {
@@ -401,7 +401,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       const Text(
-        'Presiona el botón del OLEO por 5 segundos y luego presiona Buscar.',
+        'Presiona el botón del LAB por 5 segundos y luego presiona Buscar.',
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
       const SizedBox(height: 20),
@@ -427,13 +427,13 @@ class _AddDevicePageState extends State<AddDevicePage> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       const Text(
-        'Selecciona tu dispositivo OLEO detectado:',
+        'Selecciona tu dispositivo LAB detectado:',
         style: TextStyle(fontWeight: FontWeight.w600),
       ),
       const SizedBox(height: 12),
       if (_scanResults.isEmpty)
         const Text(
-          'No se encontraron dispositivos OLEO. Inicia una nueva búsqueda desde el paso anterior.',
+          'No se encontraron dispositivos LAB. Inicia una nueva búsqueda desde el paso anterior.',
         )
       else
         ..._scanResults.asMap().entries.map((entry) {
@@ -547,7 +547,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
             border: Border.all(color: Colors.blueGrey.shade100),
           ),
           child: Text(
-            'Estado OLEO: $_bleStatus',
+            'Estado LAB: $_bleStatus',
             style: const TextStyle(fontSize: 14),
           ),
         ),
@@ -610,7 +610,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text(
-                        'Credenciales enviadas. Esperando confirmación del OLEO...',
+                        'Credenciales enviadas. Esperando confirmación del LAB...',
                       ),
                     ),
                   );
